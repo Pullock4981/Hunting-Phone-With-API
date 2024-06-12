@@ -122,7 +122,7 @@ const showPhoneDetails = (phone) => {
         <img src="${phone.image}" alt="Shoes" class="rounded-xl mb-10" />
       </figure>
       <div class="card-body items-start text-start">
-        <h2 class="card-title">${phone.name}</h2>
+        <h2 class="card-title font-extrabold">${phone.name}</h2>
         <p><span class="font-extrabold">Storage : </span>${phone.mainFeatures.storage}</p>
         <p><span class="font-extrabold">Display Size : </span>${phone.mainFeatures.displaySize}</p>
         <p><span class="font-extrabold">Chipset : </span>${phone.mainFeatures.chipSet}</p>
