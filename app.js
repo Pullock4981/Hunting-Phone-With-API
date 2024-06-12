@@ -118,8 +118,8 @@ const showPhoneDetails = (phone) => {
   showDetailsContainer.innerHTML = `
   
   <div class="card bg-base-100">
-      <figure class="px-10 pt-10 bg-[#ECFEFF]">
-        <img src="${phone.image}" alt="Shoes" class="rounded-xl mb-10" />
+      <figure class="px-10 lg:pt-10 bg-[#ECFEFF]">
+        <img src="${phone.image}" alt="Shoes" class="rounded-xl lg:mb-10 " />
       </figure>
       <div class="card-body items-start text-start">
         <h2 class="card-title font-extrabold">${phone.name}</h2>
