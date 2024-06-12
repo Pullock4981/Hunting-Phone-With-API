@@ -65,8 +65,29 @@
 
     <!-- main -->
 
-    <main>
-      <div class="flex justify-center items-center">
+    <main class="lg:ml-20 ml-4 lg:mr-20 mr-4 mt-8">
+      <section class="">
+        <div
+          class="hero h-96"
+          style="
+            background-image: url(assats/phone.webp);
+          "
+        >
+          <div class="hero-overlay bg-opacity-60"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+              <p class="mb-5">
+                Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                assumenda excepturi exercitationem quasi. In deleniti eaque aut
+                repudiandae et a id nisi.
+              </p>
+              <button class="btn btn-primary">Get Started</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="flex justify-center items-center mt-16">
         <h1 class="text-3xl font-extrabold">Search your phone</h1>
       </div>
       <!-- search box -->
@@ -88,6 +109,23 @@
           </button>
         </div>
       </section>
+
+      <!-- show details modal -->
+
+      <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn" onclick="">open modal</button> -->
+      <dialog id="show_details_modal" class="modal modal-middle">
+        <div class="modal-box">
+          <h3 id="phone-detail-name" class="font-bold text-lg"></h3>
+          <div id="show-details-container"></div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn text-white bg-red-600">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
 
       <!-- search result -->
       <section>
@@ -121,7 +159,12 @@
           id="show-all-btn"
           class="flex justify-center items-center mb-8 hidden"
         >
-          <button onclick="handleShowAllBtn()" class="btn btn-accent text-white font-bold">Show All</button>
+          <button
+            onclick="handleShowAllBtn()"
+            class="btn btn-accent text-white font-bold"
+          >
+            Show All
+          </button>
         </div>
       </section>
     </main>

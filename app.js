@@ -1,6 +1,6 @@
 // show api data in console
 
-const loadPhone = async (searchText, isShowAll) => {
+const loadPhone = async (searchText = "13", isShowAll) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${searchText}`
   );
@@ -50,7 +50,7 @@ const displayPhone = (phones, isShowAll) => {
               <h2 class="card-title">${phone.phone_name}</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
               <div class="card-actions">
-                <button class="btn bg-[#00BBA6] hover:bg-[#00BBA6] text-white">Show Details</button>
+                <button onclick="handleShowDetails('${phone.slug}')" class="btn bg-[#00BBA6] hover:bg-[#00BBA6] text-white">Show Details</button>
               </div>
             </div>
     `;
@@ -90,4 +90,56 @@ const handleShowAllBtn = () => {
 };
 // call the function
 
-// loadPhone();
+// show details btn
+
+const handleShowDetails = async (id) => {
+  console.log("Clicked", id);
+
+  // show all data about phone
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/phone/${id}`
+  );
+  const data = await res.json();
+  const phone = data.data;
+
+  showPhoneDetails(phone);
+};
+
+// shoe details modal function
+
+const showPhoneDetails = (phone) => {
+  console.log(phone);
+  // const phoneName = document.getElementById("phone-detail-name");
+  // phoneName.innerText = phone.name;
+
+  const showDetailsContainer = document.getElementById(
+    "show-details-container"
+  );
+  showDetailsContainer.innerHTML = `
+  
+  <div class="card bg-base-100">
+      <figure class="px-10 pt-10 bg-[#ECFEFF]">
+        <img src="${phone.image}" alt="Shoes" class="rounded-xl mb-10" />
+      </figure>
+      <div class="card-body items-start text-start">
+        <h2 class="card-title">${phone.name}</h2>
+        <p><span class="font-extrabold">Storage : </span>${phone.mainFeatures.storage}</p>
+        <p><span class="font-extrabold">Display Size : </span>${phone.mainFeatures.displaySize}</p>
+        <p><span class="font-extrabold">Chipset : </span>${phone.mainFeatures.chipSet}</p>
+        <p><span class="font-extrabold">Memory : </span>${phone.mainFeatures.memory}</p>
+        <!-- <p><span>Storage:</span>${phone.storage}</p> -->
+        <!-- <p><span>Storage:</span>${phone.storage}</p> -->
+        <!-- <div class="card-actions">
+          <button class="btn btn-primary">Buy Now</button>
+        </div> -->
+      </div>
+    </div>
+  
+  `;
+
+  // display the modal
+
+  show_details_modal.showModal();
+};
+
+loadPhone();
